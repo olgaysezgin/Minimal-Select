@@ -122,6 +122,9 @@ $arrow-color: darken($border-color, 10%);
 					color: $hover-color;
 					background-color: $hover-bg-color;
 				}
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 	}
