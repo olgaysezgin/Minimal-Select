@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+	<title>Minimal Select</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/screen.css">
+	<link rel="stylesheet" type="text/css" href="css/minimal-select.css">
+</head>
+<body>
+
+	<header>
+	</header>
+
+	<section>
+		<select id="id_select" name="select" placeholder="Select an option" style="width: 200px;">
+			<option value="option-1">Option 1</option>
+			<option value="option-2">Option 2</option>
+			<option value="option-3">Option 3</option>
+			<option value="option-4">Option 4</option>
+			<option value="option-5">Option 5</option>
+			<option value="option-6">Option 6</option>
+		</select>
+	</section>
+
+	<footer>
+
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/jquery.class.min.js"></script>
+	<script src="js/minimal-select.js"></script>
+	<script>
+		$(function () {
+			new MinimalSelect.UiSelect({
+                SELECT : '#id_select'
+            });
+		});
+	</script>
+
+</body>
+</html>

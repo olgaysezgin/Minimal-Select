@@ -1,0 +1,129 @@
+/*
+ *	Minimal Select Scss
+ *	Olgay Sezgin (olgay at hipo dot biz, @olgaysezgin) - September 10, 2013
+ */
+
+
+/* Variables */
+
+$select-height: 40px;
+$icon-area-width: 40px;
+$icon-width: 8px;
+
+$font-size: 14px;
+$placeholder-font-size: 16px;
+$list-line-height: 26px;
+$text-color: #666;
+$hover-bg-color: #f3f3f3;
+$hover-color: #05a1b3;
+$placeholder-color: #05a1b3;
+
+$background-color: #fff;
+$border-color: #ccc;
+$arrow-color: darken($border-color, 10%);
+
+/* End Variables */
+
+
+/* Styles */
+
+.m-select {
+	width: auto;
+	height: $select-height;
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	span.m-placeholder {
+		width: 100%;
+		line-height: $select-height;
+		padding: 0 $icon-area-width 0 10px;
+		display: block;
+		float: left;
+		position: relative;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		background-color: $background-color;
+		border: 1px solid $border-color;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		cursor: pointer;
+		font-size: $placeholder-font-size;
+		color: $placeholder-color;
+		&.focused {
+			box-shadow: 0 0 3px $hover-color;
+		}
+	}
+	b {
+		width: $icon-area-width;
+		height: $select-height;
+		display: block;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		z-index: 50;
+		pointer-events: none;
+		transition-duration: 0.4s;
+    	transition-property: transform;
+		&:after {
+			width: 0;
+			height: 0;
+			margin-left: -$icon-width;
+			position: absolute;
+			top: (($select-height - $icon-width) / 2);
+			left: 50%;
+			border: solid transparent;
+			content: " ";
+			border-color: rgba($arrow-color, 0);
+			border-top-color: $arrow-color;
+			border-width: $icon-width;
+			pointer-events: none;
+		}
+	}
+	&.active b {
+		transform: rotateX(180deg);
+		-moz-transform: rotateX(180deg);
+		-webkit-transform: rotateX(180deg);
+		// top: auto;
+		// bottom: (($select-height - $icon-width) / 2);
+		// border-top-color: rgba($arrow-color, 0);
+		// border-bottom-color: $arrow-color;
+	}
+	ul.m-list {
+		width: 100%;
+		padding: 12px 0;
+		position: absolute;
+		top: ($select-height -3);
+		left: 0;
+		overflow-y: auto;
+		border-radius: 0 0 3px 3px ;
+		border: 1px solid $border-color;
+		border-top: none;
+		background-color: $background-color;
+		li {
+			width: 100%;
+			line-height: $select-height;
+			display: block;
+			float: left;
+			a {
+				width: 100%;
+				line-height: $list-line-height;
+				padding-left: 10px;
+				display: block;
+				font-size: $font-size;
+				color: $text-color;
+				text-decoration: none;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				&:hover {
+					color: $hover-color;
+					background-color: $hover-bg-color;
+				}
+			}
+		}
+	}
+}
+
+/* End Styles */
