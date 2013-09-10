@@ -9,7 +9,7 @@ $.namespace("MinimalSelect.UiSelect");
 
 MinimalSelect.UiSelect = $.Class.extend({
 
-    SELECT : '',
+    SELECTOR : '',
     option_values : [],
     option_texts : [],
     selected_option : -1,
@@ -32,7 +32,7 @@ MinimalSelect.UiSelect = $.Class.extend({
 
     hide_select : function () {
 
-        $(this.SELECT).hide();
+        $(this.SELECTOR).hide();
 
     },
 
@@ -50,7 +50,10 @@ MinimalSelect.UiSelect = $.Class.extend({
 
     get_options : function () {
 
-        $(this.SELECT).find('option').each(function (i, e) {
+        this.option_texts = [];
+        this.option_values = [];
+
+        $(this.SELECTOR).find('option').each(function (i, e) {
             
             var attr = $(e).attr('selected');
             if ( typeof attr !== 'undefined' && attr !== false ) {
@@ -66,13 +69,13 @@ MinimalSelect.UiSelect = $.Class.extend({
 
     get_placeholder : function () {
 
-        this.placeholder_text = $(this.SELECT).attr('placeholder');
+        this.placeholder_text = $(this.SELECTOR).attr('placeholder');
 
     },
 
     create_uiselect_id : function () {
 
-        this.select_id = '#mselect-' + this.SELECT.replace('#', '');
+        this.select_id = '#mselect-' + this.SELECTOR.replace('#', '');
 
     },
 
@@ -87,13 +90,13 @@ MinimalSelect.UiSelect = $.Class.extend({
     prepare_uiselect : function () {
 
         this.prepare_template();
-        $(this.SELECT).after(this.select_template);
+        $(this.SELECTOR).after(this.select_template);
         this.set_select_width();
         this.hide_select();
         this.prepare_list();
         $(this.select_id).find('.m-placeholder').click(this.toggle_list.bind(this));
         $(this.select_id).find('.m-placeholder').focus(this.focused_ui_select.bind(this));
-        $(this.select_id).find('.m-placeholder').blur(this.toggle_list.bind(this));
+        $(this.select_id).find('.m-placeholder').blur(this.focus_out_ui_select.bind(this));
         $(this.select_id).find('a').click(this.select_option.bind(this));
 
     },
@@ -102,7 +105,7 @@ MinimalSelect.UiSelect = $.Class.extend({
 
         for (var i = 0; i <= this.option_texts.length -1; i++) {
 
-            var item = '<li><a href="javascript:void(0);" tabindex="-1">' + this.option_texts[i] + '</a></li>';
+            var item = '<li><a href="javascript:void(0);" tabindex="-1" data-value="' + this.option_values[i] + '">' + this.option_texts[i] + '</a></li>';
             $(this.select_id).find('ul.m-list').append(item);
 
             if ( i == 0 ) {
@@ -117,6 +120,13 @@ MinimalSelect.UiSelect = $.Class.extend({
 
         $(this.select_id).removeClass('active');
         this.toggle_list();
+
+    },
+
+    focus_out_ui_select : function () {
+
+        this.toggle_list();
+        $(this.select_id).find('.m-placeholder').removeClass('focused');
 
     },
 
@@ -151,9 +161,10 @@ MinimalSelect.UiSelect = $.Class.extend({
 
     select_option : function (event) {
 
-        var clicked_item = $(event.target).parent('li').index();
-        $(this.SELECT).find('option[value="' + this.option_values[clicked_item] + '"]').attr('selected', true);
-        this.change_placeholder(this.option_texts[clicked_item]);
+        var clicked_item_text = $(event.target).text();
+        var clicked_item_value = $(event.target).attr('data-value');
+        $(event.target).parents('.m-select').prev('select').find('option[value="' + clicked_item_value + '"]').attr('selected', true);
+        this.change_placeholder(clicked_item_text);
         this.toggle_list();
 
     },
@@ -166,7 +177,7 @@ MinimalSelect.UiSelect = $.Class.extend({
 
     set_select_width : function () {
 
-        var select_width = $(this.SELECT).width() + 40;
+        var select_width = $(this.SELECTOR).width() + 40;
         $(this.select_id).width(select_width);
         $(this.select_id).find('.m-placeholder').width((select_width - 50));
         $(this.select_id).find('ul.m-list').width(select_width);

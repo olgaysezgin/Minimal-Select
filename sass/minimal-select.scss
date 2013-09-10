@@ -52,7 +52,8 @@ $arrow-color: darken($border-color, 10%);
 		cursor: pointer;
 		font-size: $placeholder-font-size;
 		color: $placeholder-color;
-		&.focused {
+		&.focused, &:focus {
+			outline: none;
 			box-shadow: 0 0 3px $hover-color;
 		}
 	}
@@ -94,9 +95,11 @@ $arrow-color: darken($border-color, 10%);
 	ul.m-list {
 		width: 100%;
 		padding: 12px 0;
+		display: none;
 		position: absolute;
 		top: ($select-height -3);
 		left: 0;
+		z-index: 100;
 		overflow-y: auto;
 		border-radius: 0 0 3px 3px ;
 		border: 1px solid $border-color;
