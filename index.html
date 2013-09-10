@@ -11,30 +11,14 @@
 	</header>
 
 	<section>
-		<form>
-			<input type="text"><br>
-			<input type="text"><br>
-			<select id="id_select" name="select" placeholder="Select an option" style="width: 200px;">
-				<option value="option-1">Option 1</option>
-				<option value="option-2">Option 2</option>
-				<option value="option-3">Option 3</option>
-				<option value="option-4">Option 4</option>
-				<option value="option-5">Option 5</option>
-				<option value="option-6">Option 6</option>
-			</select><br>
-			<input type="text"><br>
-			<select id="id_select2" name="select" placeholder="Select an option" style="width: 200px;">
-				<option value="option-1">Option 7</option>
-				<option value="option-2">Option 8</option>
-				<option value="option-3">Option 9</option>
-				<option value="option-4">Option 10</option>
-				<option value="option-5">Option 11</option>
-				<option value="option-6">Option 12</option>
-			</select><br>
-			<input type="text"><br>
-			<input type="text"><br>
-			<input type="submit">
-		</form>
+		<select id="id_select" name="select" placeholder="Select an option" style="width: 200px;">
+			<option value="option-1">Option 1</option>
+			<option value="option-2">Option 2</option>
+			<option value="option-3">Option 3</option>
+			<option value="option-4">Option 4</option>
+			<option value="option-5">Option 5</option>
+			<option value="option-6">Option 6</option>
+		</select>
 	</section>
 
 	<footer>
@@ -48,9 +32,6 @@
 		$(function () {
 			new MinimalSelect.UiSelect({
                 SELECTOR : '#id_select'
-            });
-            new MinimalSelect.UiSelect({
-                SELECTOR : '#id_select2'
             });
 		});
 	</script>
