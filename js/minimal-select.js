@@ -42,7 +42,7 @@ MinimalSelect.UiSelect = $.Class.extend({
             if ( $(this.select_id).is('.active') ) {
                 this.toggle_list();
             }
-            
+
             $(this.select_id).find('.m-placeholder').removeClass('focused');
         }
 
@@ -80,7 +80,7 @@ MinimalSelect.UiSelect = $.Class.extend({
 
         this.get_placeholder();
         this.create_uiselect_id();
-        this.select_template = '<div id="' + this.select_id.replace('#', '') + '" class="m-select"><b></b><span class="m-placeholder" title="' + this.placeholder_text + '">' + this.placeholder_text + '</span><ul class="m-list" style="max-height: ' + this.lit_max_height +';top:' + (this.list_top + 30) + '; opacity:0"></ul></div>';
+        this.select_template = '<div id="' + this.select_id.replace('#', '') + '" class="m-select"><b></b><a href="javascript:void(0);" class="m-placeholder" title="' + this.placeholder_text + '">' + this.placeholder_text + '</a><ul class="m-list" style="max-height: ' + this.lit_max_height +';top:' + (this.list_top + 30) + '; opacity:0"></ul></div>';
 
     },
 
@@ -92,6 +92,8 @@ MinimalSelect.UiSelect = $.Class.extend({
         this.hide_select();
         this.prepare_list();
         $(this.select_id).find('.m-placeholder').click(this.toggle_list.bind(this));
+        $(this.select_id).find('.m-placeholder').focus(this.focused_ui_select.bind(this));
+        $(this.select_id).find('.m-placeholder').blur(this.toggle_list.bind(this));
         $(this.select_id).find('a').click(this.select_option.bind(this));
 
     },
@@ -100,18 +102,21 @@ MinimalSelect.UiSelect = $.Class.extend({
 
         for (var i = 0; i <= this.option_texts.length -1; i++) {
 
-            var item = '<li><a href="javascript:void(0);">' + this.option_texts[i] + '</a></li>';
+            var item = '<li><a href="javascript:void(0);" tabindex="-1">' + this.option_texts[i] + '</a></li>';
             $(this.select_id).find('ul.m-list').append(item);
-
-            // if ( this.selected_option == i ) {
-            //     this.change_placeholder(this.option_texts[i]);
-            // }
 
             if ( i == 0 ) {
                 $(this.select_id).find('ul.m-list li a').addClass('selected');
             }
             
         };
+
+    },
+
+    focused_ui_select : function () {
+
+        $(this.select_id).removeClass('active');
+        this.toggle_list();
 
     },
 

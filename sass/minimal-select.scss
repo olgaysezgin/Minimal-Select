@@ -33,7 +33,7 @@ $arrow-color: darken($border-color, 10%);
 	margin: 0 auto;
 	position: relative;
 	text-align: left;
-	span.m-placeholder {
+	a.m-placeholder {
 		width: 100%;
 		line-height: $select-height;
 		padding: 0 $icon-area-width 0 10px;
@@ -48,6 +48,7 @@ $arrow-color: darken($border-color, 10%);
 		border-radius: 3px;
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
+		text-decoration: none;
 		cursor: pointer;
 		font-size: $placeholder-font-size;
 		color: $placeholder-color;
