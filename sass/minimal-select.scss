@@ -15,6 +15,7 @@ $placeholder-font-size: 16px;
 $list-line-height: 26px;
 $text-color: #666;
 $hover-bg-color: #f3f3f3;
+$selected-bg-color: #d9d9d9;
 $hover-color: #05a1b3;
 $placeholder-color: #05a1b3;
 
@@ -127,6 +128,10 @@ $arrow-color: darken($border-color, 10%);
 				}
 				&:focus {
 					outline: none;
+				}
+				&.selected {
+					color: $hover-color;
+					background-color: $selected-bg-color;
 				}
 			}
 		}
