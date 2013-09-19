@@ -34,6 +34,12 @@ $arrow-color: darken($border-color, 10%);
 	margin: 0 auto;
 	position: relative;
 	text-align: left;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	  user-select: none;
 	a.m-placeholder {
 		width: 100%;
 		line-height: $select-height;
@@ -58,7 +64,7 @@ $arrow-color: darken($border-color, 10%);
 			box-shadow: 0 0 3px $hover-color;
 		}
 	}
-	b {
+	b, b i {
 		width: $icon-area-width;
 		height: $select-height;
 		display: block;
@@ -69,22 +75,25 @@ $arrow-color: darken($border-color, 10%);
 		pointer-events: none;
 		transition-duration: 0.4s;
     	transition-property: transform;
-		&:after {
-			width: 0;
-			height: 0;
-			margin-left: -$icon-width;
-			position: absolute;
-			top: (($select-height - $icon-width) / 2);
-			left: 50%;
-			border: solid transparent;
-			content: " ";
-			border-color: rgba($arrow-color, 0);
-			border-top-color: $arrow-color;
-			border-width: $icon-width;
-			pointer-events: none;
-		}
 	}
-	&.active b {
+	b {
+		border-left: 1px solid $border-color;
+	}
+	b i:after {
+		width: 0;
+		height: 0;
+		margin-left: -$icon-width;
+		position: absolute;
+		top: (($select-height - $icon-width) / 2);
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		border-color: rgba($arrow-color, 0);
+		border-top-color: $arrow-color;
+		border-width: $icon-width;
+		pointer-events: none;
+	}
+	&.active b i {
 		transform: rotateX(180deg);
 		-moz-transform: rotateX(180deg);
 		-webkit-transform: rotateX(180deg);
@@ -106,6 +115,9 @@ $arrow-color: darken($border-color, 10%);
 		border: 1px solid $border-color;
 		border-top: none;
 		background-color: $background-color;
+		box-shadow: 0 0 4px $border-color;
+		-moz-box-shadow: 0 0 4px $border-color;
+		-webkit-box-shadow: 0 0 4px $border-color;
 		li {
 			width: 100%;
 			line-height: $select-height;

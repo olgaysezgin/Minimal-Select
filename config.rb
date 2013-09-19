@@ -5,4 +5,3 @@ images_dir = "images"
 javascripts_dir = "js"
 line_comments = false
 cache = false
-output_style = :compressed

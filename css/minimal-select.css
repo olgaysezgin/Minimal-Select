@@ -1,1 +1,126 @@
-.m-select{width:auto;height:40px;margin:0 auto;position:relative;text-align:left}.m-select a.m-placeholder{width:100%;line-height:40px;padding:0 40px 0 10px;display:block;float:left;position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background-color:#fff;border:1px solid #ccc;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;cursor:pointer;font-size:16px;color:#05a1b3}.m-select a.m-placeholder.focused,.m-select a.m-placeholder:focus{outline:none;box-shadow:0 0 3px #05a1b3}.m-select b{width:40px;height:40px;display:block;position:absolute;top:1px;right:1px;z-index:50;pointer-events:none;transition-duration:0.4s;transition-property:transform}.m-select b:after{width:0;height:0;margin-left:-8px;position:absolute;top:16px;left:50%;border:solid transparent;content:" ";border-color:rgba(179,179,179,0);border-top-color:#b3b3b3;border-width:8px;pointer-events:none}.m-select.active b{transform:rotateX(180deg);-moz-transform:rotateX(180deg);-webkit-transform:rotateX(180deg)}.m-select ul.m-list{width:100%;padding:12px 0;display:none;position:absolute;top:40px -3;left:0;z-index:100;overflow-y:auto;border-radius:0 0 3px 3px;border:1px solid #ccc;border-top:none;background-color:#fff}.m-select ul.m-list li{width:100%;line-height:40px;display:block;float:left}.m-select ul.m-list li a{width:100%;line-height:26px;padding-left:10px;display:block;font-size:14px;color:#666;text-decoration:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}.m-select ul.m-list li a:hover{color:#05a1b3;background-color:#f3f3f3}.m-select ul.m-list li a:focus{outline:none}.m-select ul.m-list li a.selected{color:#05a1b3;background-color:#d9d9d9}
+/*
+ *	Minimal Select Scss
+ *	Olgay Sezgin (olgay at hipo dot biz, @olgaysezgin) - September 10, 2013
+ */
+/* Variables */
+/* End Variables */
+/* Styles */
+.m-select {
+  width: auto;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+  text-align: left;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.m-select a.m-placeholder {
+  width: 100%;
+  line-height: 40px;
+  padding: 0 40px 0 10px;
+  display: block;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #05a1b3;
+}
+.m-select a.m-placeholder.focused, .m-select a.m-placeholder:focus {
+  outline: none;
+  box-shadow: 0 0 3px #05a1b3;
+}
+.m-select b, .m-select b i {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  z-index: 50;
+  pointer-events: none;
+  transition-duration: 0.4s;
+  transition-property: transform;
+}
+.m-select b {
+  border-left: 1px solid #cccccc;
+}
+.m-select b i:after {
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  border-color: rgba(179, 179, 179, 0);
+  border-top-color: #b3b3b3;
+  border-width: 8px;
+  pointer-events: none;
+}
+.m-select.active b i {
+  transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+.m-select ul.m-list {
+  width: 100%;
+  padding: 12px 0;
+  display: none;
+  position: absolute;
+  top: 40px -3;
+  left: 0;
+  z-index: 100;
+  overflow-y: auto;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid #cccccc;
+  border-top: none;
+  background-color: white;
+  box-shadow: 0 0 4px #cccccc;
+  -moz-box-shadow: 0 0 4px #cccccc;
+  -webkit-box-shadow: 0 0 4px #cccccc;
+}
+.m-select ul.m-list li {
+  width: 100%;
+  line-height: 40px;
+  display: block;
+  float: left;
+}
+.m-select ul.m-list li a {
+  width: 100%;
+  line-height: 26px;
+  padding-left: 10px;
+  display: block;
+  font-size: 14px;
+  color: #666666;
+  text-decoration: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.m-select ul.m-list li a:hover {
+  color: #05a1b3;
+  background-color: #f3f3f3;
+}
+.m-select ul.m-list li a:focus {
+  outline: none;
+}
+.m-select ul.m-list li a.selected {
+  color: #05a1b3;
+  background-color: #d9d9d9;
+}
+
+/* End Styles */
