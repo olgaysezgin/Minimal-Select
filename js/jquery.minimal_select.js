@@ -9,10 +9,10 @@
     $.fn.minimal_select = function(options) {
 
         var settings = $.extend({
-            list_top: 40,
+            list_top: 34,
             lit_max_height: 156,
             select_width: 0,
-            arrow_padding: 50,
+            arrow_padding: 44,
             placeholder_text: ""
         }, options );
 
@@ -49,7 +49,6 @@
             if ( is_selected ) {
                 settings.placeholder_text = $(elem).find('option[selected="selected"]').text();
             } else {
-                console.log($(elem).attr('placeholder').length);
                 settings.placeholder_text = $(elem).attr('placeholder');
             }
 
