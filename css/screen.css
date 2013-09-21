@@ -1,0 +1,9 @@
+html, body {
+	position: relative;
+	text-align: center;
+	background: #eaeaea
+}
+
+body {
+	padding: 100px;
+}
