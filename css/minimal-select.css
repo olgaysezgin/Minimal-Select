@@ -8,7 +8,7 @@
 .m-select {
   width: auto;
   height: 40px;
-  margin: 0 auto;
+  float: left;
   position: relative;
   text-align: left;
   -webkit-touch-callout: none;
@@ -48,7 +48,7 @@
   display: block;
   position: absolute;
   top: 1px;
-  right: 1px;
+  right: -1px;
   z-index: 50;
   pointer-events: none;
   transition-duration: 0.4s;
@@ -107,6 +107,9 @@
   font-size: 14px;
   color: #666666;
   text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
