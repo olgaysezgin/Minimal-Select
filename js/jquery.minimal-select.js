@@ -8,6 +8,14 @@
  
     $.fn.minimal_select = function(options) {
 
+        var keyCodes = {
+            Up: 38,
+            Down: 40,
+            Enter: 13,
+            Space: 32,
+            Esc: 27
+        };
+
         var settings = $.extend({
             list_top: 40,
             lit_max_height: 156,
@@ -28,7 +36,7 @@
 
                 var item;
 
-                if ( $(opt).is('[selected="selected"]') ) {
+                if ( $(opt).is(':selected') ) {
                     item = '<li><a href="javascript:void(0);" class="selected" tabindex="-1" data-value="' + option_val + '">' + option_text + '</a></li>';
                     get_placeholder_text(elem, true);
                 } else {
@@ -47,7 +55,7 @@
         function get_placeholder_text (elem, is_selected) {
 
             if ( is_selected ) {
-                settings.placeholder_text = $(elem).find('option[selected="selected"]').text();
+                settings.placeholder_text = $(elem).find('option:selected').text();
             } else {
                 settings.placeholder_text = $(elem).attr('placeholder');
             }
@@ -210,25 +218,25 @@
 
                 var ui_select_id = '#' + $('.m-select.active').attr('id');
 
-                if (event.keyCode == 38) {
+                if (event.keyCode == keyCodes.Up) {
                     focus_up_option(ui_select_id);
                     return false;
-                } else if (event.keyCode == 40) {
+                } else if (event.keyCode == keyCodes.Down) {
                     focus_down_option(ui_select_id);
                     return false;
-                } else if (event.keyCode == 13 || event.keyCode == 32) {
+                } else if (event.keyCode == keyCodes.Enter || event.keyCode == keyCodes.Space) {
                     $('.m-select.active').find('a.selected').click();
-                } else if (event.keyCode == 27) {
+                } else if (event.keyCode == keyCodes.Esc) {
                     $('.m-select.active').find('a.m-placeholder').click();
                 }
 
-            } else if ($('.m-placeholder:focus').length > 0 && event.keyCode == 32 || $('.m-placeholder:focus').length > 0 && event.keyCode == 38 || $('.m-placeholder:focus').length > 0 && event.keyCode == 40) {
+            } else if ($('.m-placeholder:focus').length > 0 && event.keyCode == keyCodes.Space || $('.m-placeholder:focus').length > 0 && event.keyCode == keyCodes.Up || $('.m-placeholder:focus').length > 0 && event.keyCode == keyCodes.Down) {
                 var ui_select_id = '#' + $('.m-placeholder:focus').parent('div').attr('id');
                 show_hide_opt_list(ui_select_id);
             }
 
         });
-        
+
     };
 
 }( jQuery ));
