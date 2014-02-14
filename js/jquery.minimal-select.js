@@ -237,6 +237,22 @@
 
         });
 
+        $('.m-list').bind('mousewheel DOMMouseScroll', function(event) {
+            var scrollTo = null;
+
+            if (event.type == 'mousewheel') {
+                scrollTo = (event.originalEvent.wheelDelta * -1);
+            }
+            else if (event.type == 'DOMMouseScroll') {
+                scrollTo = 40 * event.originalEvent.detail;
+            }
+
+            if (scrollTo) {
+                event.preventDefault();
+                $(this).scrollTop(scrollTo + $(this).scrollTop());
+            }
+        });
+
     };
 
 }( jQuery ));
